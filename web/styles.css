@@ -951,3 +951,229 @@ a {
 .hero-image {
   animation-delay: 0.3s;
 }
+
+/* Compare Page */
+.compare-hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-elevated) 100%);
+}
+
+.compare-hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.compare-subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Differentiators Section */
+.differentiators {
+  padding: 80px 0;
+}
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.diff-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.diff-card:hover {
+  border-color: var(--color-border);
+  transform: translateY(-2px);
+}
+
+.diff-card.highlight {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-bg) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+.diff-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--color-primary-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.diff-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.diff-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.diff-card p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.diff-card p strong {
+  color: var(--color-text);
+}
+
+.diff-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Comparison Table */
+.comparison-table-section {
+  padding: 80px 0;
+  background: var(--color-bg-elevated);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.comparison-table th {
+  background: var(--color-bg-subtle);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comparison-table td {
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table td:first-child {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.highlight-col {
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+.comparison-table th.highlight-col {
+  color: var(--color-primary);
+}
+
+.check {
+  color: var(--color-green);
+  font-weight: 600;
+}
+
+.cross {
+  color: var(--color-text-tertiary);
+}
+
+.partial {
+  color: var(--color-yellow);
+  font-size: 12px;
+}
+
+/* Competitors Section */
+.competitors {
+  padding: 80px 0;
+}
+
+.competitor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.competitor-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  position: relative;
+  transition: border-color var(--transition-fast);
+}
+
+.competitor-card:hover {
+  border-color: var(--color-border);
+}
+
+.competitor-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.competitor-card p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.competitor-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--color-bg-subtle);
+  color: var(--color-text-tertiary);
+}
+
+/* Compare CTA */
+.compare-cta {
+  padding: 80px 0;
+  background: var(--color-bg-elevated);
+}
+
+.compare-cta .download-card {
+  max-width: 700px;
+  margin: 0 auto;
+}
