@@ -76,8 +76,10 @@ app.whenReady().then(() => {
 
   ipcMain.handle(
     'settings:save',
-    (_event, settings: { anthropicApiKey?: string; deepgramApiKey?: string }) => {
+    async (_event, settings: { anthropicApiKey?: string; deepgramApiKey?: string }) => {
       secureStorage.saveSettings(settings)
+      // Re-initialize services with new keys
+      await meetingManager.initialize()
       return { success: true }
     }
   )
