@@ -1,4 +1,4 @@
-# Meeting Copilot - Implementation Plan
+# Unasked - Implementation Plan
 
 ## Overview
 
@@ -47,7 +47,7 @@ Set up the development environment with Electron + React + TypeScript, basic bui
 
 ### Deliverable
 
-Empty Electron app that launches, shows "Meeting Copilot" title, and has green CI pipeline.
+Empty Electron app that launches, shows "Unasked" title, and has green CI pipeline.
 
 ---
 

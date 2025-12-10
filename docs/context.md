@@ -1,8 +1,8 @@
-# Meeting Copilot - Project Context
+# Unasked - Project Context
 
-## What is Meeting Copilot?
+## What is Unasked?
 
-Meeting Copilot is a **macOS Electron desktop application** that listens to meetings in real-time via microphone, transcribes the audio, and provides structured, actionable insights to help participants stay focused and productive.
+Unasked is a **macOS Electron desktop application** that listens to meetings in real-time via microphone, transcribes the audio, and provides structured, actionable insights to help participants stay focused and productive.
 
 ## Problem Statement
 

@@ -11,7 +11,7 @@ import { getUpdateService } from './services/UpdateService'
 config()
 
 // Set app name for dev mode (production uses productName from electron-builder)
-app.setName('Meeting Copilot')
+app.setName('Unasked')
 
 // Initialize the meeting state manager
 const meetingManager = getMeetingStateManager()
@@ -25,7 +25,7 @@ function createWindow(): BrowserWindow {
     minHeight: 600,
     show: false,
     autoHideMenuBar: true,
-    title: 'Meeting Copilot',
+    title: 'Unasked',
     icon: join(__dirname, '../../resources/icon.png'),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -56,7 +56,7 @@ function createWindow(): BrowserWindow {
 // This method will be called when Electron has finished initialization
 app.whenReady().then(() => {
   // Set app user model id for windows
-  electronApp.setAppUserModelId('com.meetingcopilot')
+  electronApp.setAppUserModelId('com.unasked')
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production

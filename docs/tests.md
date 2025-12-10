@@ -1,4 +1,4 @@
-# Meeting Copilot - Test Plan (TDD)
+# Unasked - Test Plan (TDD)
 
 ## Testing Strategy
 
@@ -294,7 +294,7 @@ describe('Full Meeting Flow', () => {
 ## End-to-End Tests (Playwright)
 
 ```typescript
-describe('Meeting Copilot E2E', () => {
+describe('Unasked E2E', () => {
   describe('application lifecycle', () => {
     it('Given app launch, When loaded, Then should show idle state with Start button')
     // Given: Fresh app launch

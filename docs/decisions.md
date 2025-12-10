@@ -1,4 +1,4 @@
-# Meeting Copilot - Architecture Decision Records
+# Unasked - Architecture Decision Records
 
 ## ADR-001: Electron for Desktop Application
 

@@ -1,4 +1,4 @@
-# Meeting Copilot - Technical Architecture
+# Unasked - Technical Architecture
 
 ## System Overview
 
@@ -254,7 +254,7 @@ interface Message {
 
 The system prompt includes:
 
-1. Role definition (Meeting Copilot behavior)
+1. Role definition (Unasked behavior)
 2. Output format specification (all 7 sections)
 3. Current meeting state (decisions, actions so far)
 4. Style rules (concise, action-oriented)

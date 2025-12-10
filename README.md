@@ -1,8 +1,8 @@
-# Meeting Copilot
+# Unasked
 
 **Your meetings, understood.**
 
-Meeting Copilot is an AI-powered assistant that captures what matters while you lead the conversation. Never lose track of decisions, action items, or open questions again.
+Unasked is an AI-powered assistant that captures what matters while you lead the conversation. Never lose track of decisions, action items, or open questions again.
 
 ## What it does
 
@@ -18,13 +18,13 @@ Audio is processed locally and sent directly to APIs. No recordings stored. Your
 
 ## Download
 
-Download Meeting Copilot for macOS from the [Releases page](https://github.com/sderosiaux/meeting-copilot/releases).
+Download Unasked for macOS from the [Releases page](https://github.com/sderosiaux/unasked/releases).
 
 **Requirements:** macOS 12+ (Intel & Apple Silicon)
 
 ## Website
 
-Visit [sderosiaux.github.io/meeting-copilot](https://sderosiaux.github.io/meeting-copilot) to learn more.
+Visit [sderosiaux.github.io/unasked](https://sderosiaux.github.io/unasked) to learn more.
 
 ---
 

@@ -1,9 +1,9 @@
 {
-  "name": "meeting-copilot",
+  "name": "unasked",
   "version": "0.2.0",
   "description": "Real-time AI meeting assistant for macOS",
   "main": "./out/main/index.js",
-  "author": "Meeting Copilot",
+  "author": "Unasked",
   "license": "MIT",
   "scripts": {
     "dev": "electron-vite dev",

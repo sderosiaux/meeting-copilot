@@ -38,7 +38,7 @@ export class WhisperService extends EventEmitter {
       model: config.model || 'small',
       language: config.language || 'auto'
     }
-    this.tempDir = path.join(os.tmpdir(), 'meeting-copilot')
+    this.tempDir = path.join(os.tmpdir(), 'unasked')
 
     // Ensure temp directory exists
     if (!fs.existsSync(this.tempDir)) {

@@ -1,8 +1,8 @@
-# Meeting Copilot - Product Specification
+# Unasked - Product Specification
 
 ## Overview
 
-Meeting Copilot is a real-time meeting assistant that processes audio input and provides structured, actionable meeting insights.
+Unasked is a real-time meeting assistant that processes audio input and provides structured, actionable meeting insights.
 
 ---
 
@@ -154,7 +154,7 @@ If no direct question: `REPONSE_EN_DIRECT: Aucune question directe reçue.`
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Meeting Copilot                              ● Recording   │
+│  Unasked                              ● Recording   │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  RESUME_LIVE                                                │

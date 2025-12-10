@@ -67,8 +67,8 @@ async function fetchLatestRelease() {
 
   if (!downloadBtn) return
 
-  const repo = downloadBtn.dataset.repo || 'sderosiaux/meeting-copilot'
-  const cacheKey = 'meeting-copilot-release'
+  const repo = downloadBtn.dataset.repo || 'sderosiaux/unasked'
+  const cacheKey = 'unasked-release'
   const cacheExpiry = 60 * 60 * 1000 // 1 hour in milliseconds
 
   // Check cache first
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyBtn = document.getElementById('copy-xattr-btn')
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('xattr -cr "/Applications/Meeting Copilot.app"')
+      navigator.clipboard.writeText('xattr -cr "/Applications/Unasked.app"')
       copyBtn.textContent = 'Copied!'
       setTimeout(() => {
         copyBtn.textContent = 'Copy'
