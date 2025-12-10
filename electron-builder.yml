@@ -1,0 +1,52 @@
+appId: com.meetingcopilot.app
+productName: Meeting Copilot
+directories:
+  buildResources: resources
+  output: dist
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!e2e/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintrc.cjs,.prettierrc,tailwind.config.js,postcss.config.js}'
+  - '!{tsconfig.json,tsconfig.*.json}'
+  - '!{vitest.config.ts,playwright.config.ts}'
+  - '!{.gitignore,.env*}'
+asarUnpack:
+  - resources/**
+mac:
+  entitlementsInherit: resources/entitlements.mac.plist
+  extendInfo:
+    - NSMicrophoneUsageDescription: Meeting Copilot needs microphone access to transcribe your meetings.
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+  notarize: false
+  target:
+    - target: dmg
+      arch:
+        - arm64
+        - x64
+    - target: zip
+      arch:
+        - arm64
+        - x64
+dmg:
+  artifactName: ${name}-${version}-${arch}.${ext}
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+  maintainer: Meeting Copilot
+  category: Utility
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+npmRebuild: false
+publish:
+  provider: generic
+  url: https://example.com/auto-updates
