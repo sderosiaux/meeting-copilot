@@ -258,9 +258,9 @@ a {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg), var(--shadow-glow);
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  transform: rotateX(5deg);
+  transform: rotateX(5deg) scale(1.05);
   transition: transform var(--transition-slow);
 }
 
