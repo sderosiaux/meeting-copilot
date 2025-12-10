@@ -82,7 +82,7 @@ export function Controls({
               ) : (
                 <>
                   <CopyIcon className="w-4 h-4 mr-2" />
-                  Copy to Markdown
+                  Copy Notes
                 </>
               )}
             </button>
