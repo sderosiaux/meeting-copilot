@@ -62,8 +62,8 @@ describe('MeetingStore', () => {
       expect(useMeetingStore.getState().startTime).toBe(startTime) // Preserved
     })
 
-    it('Given any state, When reset() called, Then should clear all state', () => {
-      // Given
+    it('Given any state, When start() called, Then should clear previous content and start fresh', () => {
+      // Given - first meeting with content
       useMeetingStore.getState().start()
       useMeetingStore.getState().addTranscriptionChunk({
         text: 'Test transcription',
@@ -72,14 +72,14 @@ describe('MeetingStore', () => {
         confidence: 0.9,
         language: 'en'
       })
+      useMeetingStore.getState().stop()
 
-      // When
-      useMeetingStore.getState().reset()
+      // When - start a new meeting
+      useMeetingStore.getState().start()
 
-      // Then
+      // Then - previous content should be cleared
       const state = useMeetingStore.getState()
-      expect(state.status).toBe('idle')
-      expect(state.startTime).toBeNull()
+      expect(state.status).toBe('recording')
       expect(state.transcriptionBuffer).toHaveLength(0)
       expect(state.fullTranscript).toBe('')
     })

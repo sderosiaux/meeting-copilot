@@ -92,7 +92,7 @@ export interface MeetingState {
   start: () => void
   pause: () => void
   resume: () => void
-  reset: () => void
+  stop: () => void
   addTranscriptionChunk: (chunk: TranscriptionChunk) => void
   updateAnalysis: (analysis: Partial<MeetingState>) => void
   clearDirectResponse: () => void
@@ -120,7 +120,9 @@ export const useMeetingStore = create<MeetingState>((set, get) => ({
   ...initialState,
 
   start: () => {
+    // Clear previous content and start fresh
     set({
+      ...initialState,
       status: 'recording',
       startTime: Date.now()
     })
@@ -138,8 +140,9 @@ export const useMeetingStore = create<MeetingState>((set, get) => ({
     window.api?.resumeMeeting()
   },
 
-  reset: () => {
-    set({ ...initialState })
+  stop: () => {
+    // Stop recording but keep the content
+    set({ status: 'idle' })
     window.api?.resetMeeting()
   },
 

@@ -17,7 +17,7 @@ export function Controls({
   const start = useMeetingStore((state) => state.start)
   const pause = useMeetingStore((state) => state.pause)
   const resume = useMeetingStore((state) => state.resume)
-  const reset = useMeetingStore((state) => state.reset)
+  const stop = useMeetingStore((state) => state.stop)
   const liveSummary = useMeetingStore((state) => state.liveSummary)
   const decisions = useMeetingStore((state) => state.decisions)
   const actions = useMeetingStore((state) => state.actions)
@@ -103,10 +103,7 @@ export function Controls({
               <PlayIcon className="w-4 h-4 mr-2" />
               Resume
             </button>
-            <button
-              onClick={reset}
-              className="btn btn-ghost btn-sm text-red-500 hover:text-red-600"
-            >
+            <button onClick={stop} className="btn btn-ghost btn-sm text-red-500 hover:text-red-600">
               <StopIcon className="w-4 h-4 mr-1" />
               Stop
             </button>
@@ -114,7 +111,7 @@ export function Controls({
         )}
 
         {(status === 'recording' || status === 'processing') && (
-          <button onClick={reset} className="btn btn-ghost btn-sm text-red-500 hover:text-red-600">
+          <button onClick={stop} className="btn btn-ghost btn-sm text-red-500 hover:text-red-600">
             <StopIcon className="w-4 h-4 mr-1" />
             Stop
           </button>
