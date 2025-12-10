@@ -103,8 +103,12 @@ export function Controls({
               <PlayIcon className="w-4 h-4 mr-2" />
               Resume
             </button>
-            <button onClick={reset} className="btn btn-ghost btn-sm">
-              Reset
+            <button
+              onClick={reset}
+              className="btn btn-ghost btn-sm text-red-500 hover:text-red-600"
+            >
+              <StopIcon className="w-4 h-4 mr-1" />
+              Stop
             </button>
           </>
         )}
