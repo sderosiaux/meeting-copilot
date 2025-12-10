@@ -60,7 +60,7 @@ document.querySelectorAll('.feature-card').forEach((card, index) => {
   card.style.transitionDelay = `${index * 0.1}s`
 })
 
-// Fetch latest release from GitHub API
+// Fetch latest release from GitHub API (with caching to avoid rate limits)
 async function fetchLatestRelease() {
   const downloadBtn = document.getElementById('download-btn')
   const heroDownloadBtn = document.querySelector('.hero-cta .btn-primary')
@@ -68,6 +68,22 @@ async function fetchLatestRelease() {
   if (!downloadBtn) return
 
   const repo = downloadBtn.dataset.repo || 'sderosiaux/meeting-copilot'
+  const cacheKey = 'meeting-copilot-release'
+  const cacheExpiry = 60 * 60 * 1000 // 1 hour in milliseconds
+
+  // Check cache first
+  try {
+    const cached = localStorage.getItem(cacheKey)
+    if (cached) {
+      const { data, timestamp } = JSON.parse(cached)
+      if (Date.now() - timestamp < cacheExpiry) {
+        applyReleaseData(data, downloadBtn, heroDownloadBtn, repo)
+        return
+      }
+    }
+  } catch (e) {
+    // Cache read failed, continue to fetch
+  }
 
   try {
     const response = await fetch(`https://api.github.com/repos/${repo}/releases/latest`)
@@ -83,27 +99,44 @@ async function fetchLatestRelease() {
 
     const release = await response.json()
 
-    // Find macOS DMG (prefer arm64/universal, fallback to x64)
-    const assets = release.assets || []
-    const dmgAsset =
-      assets.find((a) => a.name.endsWith('.dmg') && a.name.includes('arm64')) ||
-      assets.find((a) => a.name.endsWith('.dmg')) ||
-      assets.find((a) => a.name.endsWith('.zip') && a.name.includes('mac'))
-
-    if (dmgAsset) {
-      downloadBtn.href = dmgAsset.browser_download_url
-      if (heroDownloadBtn) {
-        heroDownloadBtn.href = dmgAsset.browser_download_url
-      }
-    } else {
-      downloadBtn.href = release.html_url
-      if (heroDownloadBtn) {
-        heroDownloadBtn.href = release.html_url
-      }
+    // Cache the response
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify({ data: release, timestamp: Date.now() }))
+    } catch (e) {
+      // Cache write failed, continue anyway
     }
+
+    applyReleaseData(release, downloadBtn, heroDownloadBtn, repo)
   } catch (error) {
     console.log('Could not fetch latest release:', error)
     downloadBtn.href = `https://github.com/${repo}/releases`
+  }
+}
+
+function applyReleaseData(release, downloadBtn, heroDownloadBtn, repo) {
+  // Find macOS DMG (prefer arm64/universal, fallback to x64)
+  const assets = release.assets || []
+  const dmgAsset =
+    assets.find((a) => a.name.endsWith('.dmg') && a.name.includes('arm64')) ||
+    assets.find((a) => a.name.endsWith('.dmg')) ||
+    assets.find((a) => a.name.endsWith('.zip') && a.name.includes('mac'))
+
+  if (dmgAsset) {
+    downloadBtn.href = dmgAsset.browser_download_url
+    if (heroDownloadBtn) {
+      heroDownloadBtn.href = dmgAsset.browser_download_url
+    }
+  } else {
+    downloadBtn.href = release.html_url
+    if (heroDownloadBtn) {
+      heroDownloadBtn.href = release.html_url
+    }
+  }
+
+  // Update version display if element exists
+  const versionEl = document.getElementById('release-version')
+  if (versionEl && release.tag_name) {
+    versionEl.textContent = release.tag_name
   }
 }
 
