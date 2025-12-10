@@ -2,7 +2,8 @@
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href')
-    if (href === '#') return // Skip empty anchors (download button)
+    // Skip if href was changed dynamically (e.g., download button) or is empty
+    if (!href.startsWith('#') || href === '#') return
 
     e.preventDefault()
     const target = document.querySelector(href)

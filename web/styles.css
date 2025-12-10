@@ -567,6 +567,19 @@ a {
   padding: 120px 0;
 }
 
+.how-it-works-image {
+  margin: 0 auto 60px;
+  max-width: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.how-it-works-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .steps {
   display: flex;
   align-items: flex-start;
