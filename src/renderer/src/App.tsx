@@ -53,6 +53,14 @@ function App(): React.JSX.Element {
     return () => unsubscribe?.()
   }, [])
 
+  // Listen for settings:open event (triggered when API keys are missing)
+  useEffect(() => {
+    const unsubscribe = window.api?.onSettingsOpen(() => {
+      setIsSettingsOpen(true)
+    })
+    return () => unsubscribe?.()
+  }, [])
+
   // Start/stop audio capture based on status
   // Keep capturing during 'processing' (Claude analysis) - only stop on 'idle' or 'paused'
   useEffect(() => {

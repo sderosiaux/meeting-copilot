@@ -72,7 +72,17 @@ const api = {
     deepgramApiKey?: string
   }): Promise<{ success: boolean }> => ipcRenderer.invoke('settings:save', settings),
   hasApiKeys: (): Promise<{ anthropic: boolean; deepgram: boolean }> =>
-    ipcRenderer.invoke('settings:hasApiKeys')
+    ipcRenderer.invoke('settings:hasApiKeys'),
+
+  onSettingsOpen: (callback: (data: { message: string }) => void): (() => void) => {
+    const handler = (_event: Electron.IpcRendererEvent, data: { message: string }): void => {
+      callback(data)
+    }
+    ipcRenderer.on('settings:open', handler)
+    return () => {
+      ipcRenderer.removeListener('settings:open', handler)
+    }
+  }
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

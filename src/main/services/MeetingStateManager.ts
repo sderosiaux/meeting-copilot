@@ -153,6 +153,17 @@ export class MeetingStateManager extends EventEmitter {
   }
 
   async start(): Promise<void> {
+    // Check if API keys are configured
+    const secureStorage = getSecureStorage()
+    const settings = secureStorage.getSettings()
+
+    if (!settings.deepgramApiKey || !settings.anthropicApiKey) {
+      this.sendToRenderer('settings:open', {
+        message: 'Please configure your API keys to start a meeting'
+      })
+      return
+    }
+
     // Check microphone permission
     const permission = await this.audioService.checkMicrophonePermission()
 

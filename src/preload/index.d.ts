@@ -22,6 +22,7 @@ declare global {
         deepgramApiKey?: string
       }) => Promise<{ success: boolean }>
       hasApiKeys: () => Promise<{ anthropic: boolean; deepgram: boolean }>
+      onSettingsOpen: (callback: (data: { message: string }) => void) => () => void
     }
   }
 }
